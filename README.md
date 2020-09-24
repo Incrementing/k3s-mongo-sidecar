@@ -1,26 +1,26 @@
-![Lint](https://github.com/morphy2k/k3s-mongo-sidecar/workflows/Lint/badge.svg)
-[![Dependabot status](https://api.dependabot.com/badges/status?host=github&repo=morphy2k/k3s-mongo-sidecar)](https://dependabot.com/)
+![Lint](https://github.com/morphy2k/k8s-mongo-sidecar/workflows/Lint/badge.svg)
+[![Dependabot status](https://api.dependabot.com/badges/status?host=github&repo=morphy2k/k8s-mongo-sidecar)](https://dependabot.com/)
 
 # Mongo Kubernetes Replica Set Sidecar
 
 This project is as a PoC to setup a MongoDB replica set using Kubernetes. It should handle resizing of any type and be resilient to the various conditions both MongoDB and Kubernetes can find themselves in.
 
-*It's a fork of [cvallance/mongo-k3s-sidecar](https://github.com/cvallance/mongo-k3s-sidecar) with (many) changes and improvements.*
+*It's a fork of [cvallance/mongo-k8s-sidecar](https://github.com/cvallance/mongo-k8s-sidecar) with (many) changes and improvements.*
 
 ## How to use it
 
 The docker image is hosted on Docker Hub and can be found here:
-[https://hub.docker.com/r/morphy/k3s-mongo-sidecar](https://hub.docker.com/r/morphy/k3s-mongo-sidecar)
+[https://hub.docker.com/r/morphy/k8s-mongo-sidecar](https://hub.docker.com/r/morphy/k8s-mongo-sidecar)
 
 An example Kubernetes replication controller can be found in the examples directory on GitHub:
-[https://github.com/morphy2k/k3s-mongo-sidecar](https://github.com/morphy2k/k3s-mongo-sidecar/tree/master/example)
+[https://github.com/morphy2k/k8s-mongo-sidecar](https://github.com/morphy2k/k8s-mongo-sidecar/tree/master/example)
 
 
 ### Settings
 
 | Environment Variable | Required | Default | Description |
 | --- | --- | --- | --- |
-| KUBERNETES_CLUSTER_DOMAIN | NO | cluster.local | This allows the specification of a custom cluster domain name. Used for the creation of a stable network ID of the k3s Mongo   pods. An example could be: "kube.local". |
+| KUBERNETES_CLUSTER_DOMAIN | NO | cluster.local | This allows the specification of a custom cluster domain name. Used for the creation of a stable network ID of the k8s Mongo   pods. An example could be: "kube.local". |
 | KUBERNETES_SERVICE_NAME | YES | mongo | This should point to the MongoDB Kubernetes (headless) service that identifies all the pods. |
 | KUBERNETES_NAMESPACE | NO |  | The namespace to look up pods in. Not setting it will search for pods in all namespaces. |
 | KUBERNETES_POD_LABELS | YES |  | This should be a be a comma separated list of key values the same as the podTemplate labels. See above for example. |
@@ -66,7 +66,7 @@ Environment variables, Volume & Volume Mounts
             - name: mongo-tls
               mountPath: /data/tls/mongo
         - name: mongo-sidecar
-          image: morphy/k3s-mongo-sidecar
+          image: morphy/k8s-mongo-sidecar
           env:
             - name: KUBERNETES_POD_LABELS
               value: "role=mongo,environment=prod"
@@ -102,3 +102,4 @@ kubectl create secret generic mongo-tls \
 --from-file=key.pem \
 --from-file=cert.pem
 ```
+
