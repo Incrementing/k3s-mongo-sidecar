@@ -1,10 +1,12 @@
-'use strict';
+"use strict";
 
-const worker = require('./lib/worker');
+const worker = require("./lib/worker");
 
+console.log("Starting up k3s-mongo-sidecar");
 
-console.log('Starting up k8s-mongo-sidecar');
-
-worker.init()
+worker
+  .init()
   .then(worker.workloop)
-  .catch(err => console.error('Error trying to initialize k8s-mongo-sidecar', err));
+  .catch((err) =>
+    console.error("Error trying to initialize k3s-mongo-sidecar", err)
+  );

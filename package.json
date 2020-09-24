@@ -1,5 +1,5 @@
 {
-  "name": "k8s-mongo-sidecar",
+  "name": "k3s-mongo-sidecar",
   "description": "Kubernetes sidecar for mongoDB",
   "version": "0.4.2",
   "license": "MIT",
@@ -8,13 +8,13 @@
     "email": "mail@morphy2k.dev",
     "url": "https://morphy2k.dev"
   },
-  "contributors": "https://github.com/morphy2k/k8s-mongo-sidecar/graphs/contributors",
+  "contributors": "https://github.com/morphy2k/k3s-mongo-sidecar/graphs/contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/morphy2k/k8s-mongo-sidecar.git"
+    "url": "https://github.com/morphy2k/k3s-mongo-sidecar.git"
   },
   "bugs": {
-    "url": "https://github.com/morphy2k/k8s-mongo-sidecar/issues"
+    "url": "https://github.com/morphy2k/k3s-mongo-sidecar/issues"
   },
   "engines": {
     "node": ">=8.11.0"
@@ -28,7 +28,7 @@
   },
   "keywords": [
     "kubernetes",
-    "k8s",
+    "k3s",
     "mongo",
     "mongodb",
     "sidecar",

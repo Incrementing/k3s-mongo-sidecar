@@ -1,5 +1,5 @@
 kind: StorageClass
-apiVersion: storage.k8s.io/v1
+apiVersion: storage.k3s.io/v1
 metadata:
   namespace: kube-system
   name: standard
@@ -8,4 +8,4 @@ metadata:
   labels:
     addonmanager.kubernetes.io/mode: EnsureExists
 
-provisioner: k8s.io/minikube-hostpath
+provisioner: k3s.io/minikube-hostpath
