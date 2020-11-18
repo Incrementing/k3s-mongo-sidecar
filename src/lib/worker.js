@@ -288,7 +288,8 @@ const getPodStableNetworkAddressAndPort = (pod) => {
   )
     return;
 
-  return `${pod.metadata.name}.${config.k3sMongoServiceName}.${pod.metadata.namespace}.svc.${config.k3sClusterDomain}:${config.mongoPort}`;
+  // return `${pod.metadata.name}.${config.k3sMongoServiceName}.${pod.metadata.namespace}.svc.${config.k3sClusterDomain}:${config.mongoPort}`;
+  return `${pod.metadata.name}.${config.k3sMongoServiceName}:${config.mongoPort}`;
 };
 
 module.exports = {

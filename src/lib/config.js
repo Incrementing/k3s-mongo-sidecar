@@ -11,7 +11,7 @@ const getK3sROServiceAddress = () =>
  * Can be convigured via the environmental variable 'KUBERNETES_CLUSTER_DOMAIN'.
  */
 const getK3sClusterDomain = () => {
-  const domain = process.env.KUBERNETES_CLUSTER_DOMAIN || "cluster.local";
+  const domain = process.env.KUBERNETES_CLUSTER_DOMAIN || "lfgo.k3s";
   verifyCorrectnessOfDomain(domain);
   return domain;
 };
@@ -100,7 +100,6 @@ module.exports = {
   k3sROServiceAddress: getK3sROServiceAddress(),
   k3sMongoServiceName: getK3sMongoServiceName(),
   k3sMongoPodLabels: process.env.KUBERNETES_POD_LABELS,
-
   mongoPort: getMongoPort(),
   mongoDatabase: process.env.MONGO_DATABASE || "local",
   mongoUsername: process.env.MONGO_USERNAME,
