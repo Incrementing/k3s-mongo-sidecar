@@ -257,7 +257,7 @@ const addrToRemoveLoop = (members) => {
 const memberShouldBeRemoved = (member) =>
   !member.health &&
   DateTime.local().minus({ seconds: unhealthySeconds }) >
-    DateTime.fromISO(member.lastHeartbeatRecv);
+  DateTime.fromISO(member.lastHeartbeatRecv);
 
 /**
  * @param pod this is the Kubernetes pod, containing the info.
@@ -288,7 +288,9 @@ const getPodStableNetworkAddressAndPort = (pod) => {
   )
     return;
 
-  // return `${pod.metadata.name}.${config.k3sMongoServiceName}.${pod.metadata.namespace}.svc.${config.k3sClusterDomain}:${config.mongoPort}`;
+  //console.log(`${pod.metadata.name}.${config.k3sMongoServiceName}.${pod.metadata.namespace}.svc.${config.k3sClusterDomain}:${config.mongoPort}`);
+  //console.log(`${pod.metadata.name}.${config.k3sMongoServiceName}:${config.mongoPort}`);
+  //return `${pod.metadata.name}.${config.k3sMongoServiceName}.${pod.metadata.namespace}.svc.${config.k3sClusterDomain}:${config.mongoPort}`;
   return `${pod.metadata.name}.${config.k3sMongoServiceName}:${config.mongoPort}`;
 };
 
